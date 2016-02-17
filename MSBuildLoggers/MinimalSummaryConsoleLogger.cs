@@ -26,6 +26,7 @@ namespace MSBuildLoggers
 
         public override void Initialize(IEventSource eventSource)
         {
+            Console.OutputEncoding = new System.Text.UTF8Encoding();
             ParseParameters();
             eventSource.WarningRaised += eventSource_WarningRaised;
             eventSource.ErrorRaised += eventSource_ErrorRaised;
@@ -47,7 +48,12 @@ namespace MSBuildLoggers
                 {
                     int index = parameter.IndexOf('=');
                     this.options.TrimPath = parameter.Substring(index + 1).Trim('"').Trim();
-                    continue;
+                }
+                else if (parameter.ToUpper().StartsWith("ENCODING"))
+                {
+                    int index = parameter.IndexOf('=');
+                    String webname = parameter.Substring(index + 1).Trim('"').Trim();
+                    Console.OutputEncoding = System.Text.Encoding.GetEncoding(webname);
                 }
                 else if (parameter.ToUpper() == "HIDEERRORS")
                 {
