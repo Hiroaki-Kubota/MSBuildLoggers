@@ -9,10 +9,24 @@ namespace MSBuildLoggers
     /// </summary>
     public class MinimalSummaryConsoleLogger : Logger
     {
+        /// <summary>
+        /// Options for <see cref="MinimalSummaryConsoleLogger"/>
+        /// </summary>
         private class Options
         {
+            /// <summary>
+            /// If you want to show errors, set true. Otherwise false.
+            /// </summary>
             public bool ShowErrors = true;
+
+            /// <summary>
+            /// If you want to show warnings, set true. Otherwise false.
+            /// </summary>
             public bool ShowWarnings = true;
+
+            /// <summary>
+            /// String to be ignored at log outputs.
+            /// </summary>
             public string TrimPath = string.Empty;
         }
 
@@ -24,7 +38,11 @@ namespace MSBuildLoggers
         const string WARNING_MESSAGE = "WARNING\t{0}\t{1}\t({2}, {3})\t{4}";
         const string ERROR_MESSAGE = "ERROR\t{0}\t{1}\t({2}, {3})\t{4}";
 
-        public override void Initialize(IEventSource eventSource)
+        /// <summary>
+        /// Subscrive events.
+        /// </summary>
+        /// <param name="eventSource"></param>
+        public override void Initialize(IEventSource eventSource) 
         {
             Console.OutputEncoding = new System.Text.UTF8Encoding();
             ParseParameters();
@@ -33,6 +51,7 @@ namespace MSBuildLoggers
             eventSource.BuildFinished += eventSource_BuildFinished;
             Console.WriteLine(HEADER);
         }
+
 
         void ParseParameters()
         {
