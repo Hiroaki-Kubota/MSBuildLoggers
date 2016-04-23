@@ -1,16 +1,16 @@
 # MSBuildLoggers
 
-�v���O�������K�����˂�MSBuild�p�̃��K�[�ł��B
-Jenkins�Ńr���h�v���W�F�N�g�ւ���DLL��z������ɂ́A
-Custom Tools Plugin (https://wiki.jenkins-ci.org/display/JENKINS/Custom+Tools+Plugin) ���g�p����ƊȒP�ł��B
+プログラム練習を兼ねたMSBuild用のロガーです。
+JenkinsでビルドプロジェクトへこのDLLを配備するには、
+Custom Tools Plugin (https://wiki.jenkins-ci.org/display/JENKINS/Custom+Tools+Plugin) を使用すると簡単です。
 
 ## MinimalSummaryConsoleLogger
 
-���̃��K�[�̓G���[�E�x���̏o�͂ƃT�}���[�̏o�͂��s���܂��B
-�e���ڂ��^�u��؂�ŏo�͂��Ă���̂�Excel�փR�s�y���ăt�B���^�ł��܂��B
-�܂��A����̃G���R�[�h��UTF-8�Ƃ��Ă��邽�߁AJenkins��MSBuild Pugin���g�p���Ă����{�ꂪ�����������܂���B
+このロガーはエラー・警告の出力とサマリーの出力を行います。
+各項目をタブ区切りで出力しているのでExcelへコピペしてフィルタできます。
+また、既定のエンコードをUTF-8としているため、JenkinsのMSBuild Puginを使用しても日本語が文字化けしません。
 
 ### Example for jenkins
 
-MSBuild �^�X�N�̈����Ɏ��̂悤�ɋL�q���܂�:
+MSBuild タスクの引数に次のように記述します:
 /noconsolelogger /logger:MinimalSummaryConsoleLogger,%MSBuildLoggers_HOME%\MSBuildLoggers.dll;TrimPath="%WORKSPACE%\\"
