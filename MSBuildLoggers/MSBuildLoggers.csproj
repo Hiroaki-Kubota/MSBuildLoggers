@@ -42,13 +42,14 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MinimalSummaryConsoleLogger.cs" />
+    <Compile Include="TSVConsoleLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="TSVFileLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.ja-JP.resx" />
