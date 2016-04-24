@@ -36,13 +36,13 @@ Jenkinsからビルドする際に、ワークスペースのパスを指定し�
 </dd>
 </dl>
 
-```パラメータの指定例
+``` パラメータの指定例
 msbuild /noconsolelogger /logger:TSVConsoleLogger,MSBuildLoggers.dll;Encoding=SJIS;HideWarnings;TrimPath="C:\MySource\MyProject"
 ```
 
 ### Example for jenkins
 
-```MSBuild タスクの引数設定例
+``` MSBuild タスクの引数設定例
 /noconsolelogger /logger:TSVConsoleLogger,%MSBuildLoggers_HOME%\MSBuildLoggers.dll;TrimPath="%WORKSPACE%\\"
 ```
 
