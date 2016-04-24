@@ -42,7 +42,9 @@ msbuild /noconsolelogger /logger:TSVConsoleLogger,MSBuildLoggers.dll;Encoding=SJ
 
 ### Example for jenkins
 
-``` MSBuild タスクの引数設定例
+MSBuild タスクの引数設定例
+
+```
 /noconsolelogger /logger:TSVConsoleLogger,%MSBuildLoggers_HOME%\MSBuildLoggers.dll;TrimPath="%WORKSPACE%\\"
 ```
 
